@@ -79,7 +79,62 @@ ls.add_snippets("tex", {
         ),
         {condition = line_begin}
     ),
-
+    s({trig = "dmppp", dscr="Dummit and Foote problem proof", snippetType = "autosnippet"}, 
+        fmta(
+            [[
+                \begin{problem}
+                [Dummit and Foote <>]
+                \end{problem}
+                \begin{proof}
+                    <>
+                \end{proof}
+            ]],
+            {i(1), i(2)}
+        ),
+        {condition = line_begin}
+    ),
+    s({trig = "mhppp", dscr="Marsden and Hoffman problem proof", snippetType = "autosnippet"}, 
+        fmta(
+            [[
+                \begin{problem}
+                [Marsden and Hoffman <>]
+                \end{problem}
+                \begin{proof}
+                    <>
+                \end{proof}
+            ]],
+            {i(1), i(2)}
+        ),
+        {condition = line_begin}
+    ),
+    s({trig = "mmppp", dscr="Munkres problem proof", snippetType = "autosnippet"}, 
+        fmta(
+            [[
+                \begin{problem}
+                [Munkres Chapter <> Problem <>]
+                \end{problem}
+                \begin{proof}
+                    <>
+                \end{proof}
+            ]],
+            {i(1), i(2), i(3)}
+        ),
+        {condition = line_begin}
+    ),
+    s({trig = "cfgig", dscr="insert centered figure", snippetType = "autosnippet"}, 
+        fmta(
+            [[
+               \begin{minipage}{\linewidth}% to keep image and caption on one page
+                \makebox[\linewidth]{%        to center the image
+                \includegraphics[keepaspectratio=true,scale=0.6]{<>}}
+                \captionof{figure}{<>}
+                \end{minipage}
+                \vspace{5mm}               
+                ]],
+            {i(1), i(2)}
+        ),
+        {condition = line_begin}
+    ),
     -- Math operator kits
     s({trig = "LAtempl", dscr="linear algebra math operators", snippetType = "autosnippet"}, 
         fmta(
@@ -101,7 +156,8 @@ ls.add_snippets("tex", {
                 \DeclareMathOperator{\Inn}{Inn}
                 \DeclareMathOperator{\Aut}{Aut}
                 \DeclareMathOperator{\Out}{Out}
-                \DeclareMathOperator{\im}{im}
+                \DeclareMathOperator{\im}{Im}
+                \DeclareMathOperator{\ins}{ins}
                 <>
             ]],
             {i(0)}
@@ -132,11 +188,17 @@ ls.add_snippets("tex", {
 
                 \newcommand{\classtitle}{<>}
                 \newcommand{\doctitle}{<>}
-                \newcommand{\username}{Daniel Chen}
+                \newcommand{\username}{Julian Hovanec}
 
                 \usepackage{fancyhdr}
                 \usepackage{amsmath}
+                \usepackage{amssymb}
                 \usepackage{mathrsfs}
+                \usepackage{tikz-cd}
+                \usepackage{graphicx}
+                \graphicspath{ {./images/} }
+                \usepackage{caption}
+
 
 
                 \pagestyle{fancy}
@@ -152,12 +214,33 @@ ls.add_snippets("tex", {
                 \newtheorem{theorem}{Theorem}[section]
                 \newtheorem{problem}{Problem}
                 \newtheorem{lemma}{Lemma}
-                \newtheorem{definition}{Definition}
+                \newtheorem{prop}{Proposition}
+                \newtheorem{defn}{Definition}
 
                 \title{\classtitle\;\doctitle}
                 \author{\username}
 
                 %User Defined Commands
+                %User Defined Commands
+                \DeclareMathOperator{\ord}{ord}
+                \DeclareMathOperator{\Aut}{Aut}
+                \DeclareMathOperator{\Gal}{Gal}
+                \DeclareMathOperator{\Sym}{Sym}
+                \DeclareMathOperator{\Free}{Free}
+                \DeclareMathOperator{\ins}{ins}
+                \DeclareMathOperator{\Hom}{Hom}
+                \DeclareMathOperator{\mult}{mult}
+                \DeclareMathOperator{\ev}{ev}
+                \DeclareMathOperator{\act}{act}
+                \DeclareMathOperator{\Spec}{Spec}
+                \DeclareMathOperator{\End}{End}
+                \DeclareMathOperator{\Maps}{Maps}
+                \DeclareMathOperator{\dom}{dom}
+                \DeclareMathOperator{\len}{len}
+                \DeclareMathOperator{\im}{im}
+                \DeclareMathOperator{\id}{id}
+
+
 
                 \begin{document}
                     \maketitle

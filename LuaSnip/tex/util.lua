@@ -84,20 +84,26 @@ ls.add_snippets("tex", {
     s({trig="mk", snippetType="autosnippet", wordTrig=false},
         fmta("$<>$", {i(1)})
     ),
+    s({trig="mq", snippetType="autosnippet", wordTrig=false},
+        fmta("$$<>$$", {i(1)})
+    ),
     s({trig="mj", snippetType="autosnippet", wordTrig=false},
         fmta("\\{<>\\}", {d(1, get_visual)})
     ),
     s({trig="mss", snippetType="autosnippet", wordTrig=false},
         fmta("$\\{<>\\}$", {i(1)})
     ),
+    s({trig="udl", snippetType="autosnippet", wordTrig=false},
+        fmta("\\underline{<>}", {i(1)})
+    ),
 
     --auto char modification and char modification
-    s({trig = '(%a)ht', regTrig=true, snippetType="autosnippet", wordTrig=false}, 
+    s({trig = '(%a)ht', regTrig=true, wordTrig=false}, 
         fmta([[\hat{<>}]],
             { f(function(_, snip) return snip.captures[1] end)}),
         {condition = in_mathzone}
     ),
-    s({trig = '(%a)dt', regTrig=true, snippetType="autosnippet", wordTrig=false}, 
+    s({trig = '(%a)dt', regTrig=true, wordTrig=false}, 
         fmta([[\dot{<>}]],
             { f(function(_, snip) return snip.captures[1] end)}),
         {condition = in_mathzone}
@@ -107,12 +113,17 @@ ls.add_snippets("tex", {
             { f(function(_, snip) return snip.captures[1] end)}),
         {condition = in_mathzone}
     ),
+    s({trig = '(%a)br', regTrig=true, snippetType="autosnippet", wordTrig=false}, 
+        fmta([[\bar{<>}]],
+            { f(function(_, snip) return snip.captures[1] end)}),
+        {condition = in_mathzone}
+    ),
     s({trig = '(%a)twd', regTrig=true, snippetType="autosnippet", wordTrig=false}, 
         fmta([[\tilde{<>}]],
             { f(function(_, snip) return snip.captures[1] end)}),
         {condition = in_mathzone}
     ),
-    s({trig="ht", snippetType="autosnippet", wordTrig=false},
+    s({trig="ht", wordTrig=false},
         fmta("\\hat{<>}",
             {
                 d(1, get_visual)
@@ -120,7 +131,7 @@ ls.add_snippets("tex", {
         ),
         {condition = in_mathzone}
     ),
-    s({trig="dt", snippetType="autosnippet", wordTrig=false},
+    s({trig="dt", wordTrig=false},
         fmta("\\dot{<>}",
             {
                 d(1, get_visual)
@@ -190,6 +201,14 @@ ls.add_snippets("tex", {
         ),
         {condition = in_mathzone}
     ),
+    s({trig="mfa", snippetType="autosnippet", wordTrig=false},
+        fmta("\\mathfrak{<>}",
+            {
+                d(1, get_visual)
+            }
+        ),
+        {condition = in_mathzone}
+    ),
     s({trig="msc", snippetType="autosnippet", wordTrig=false},
         fmta("\\mathscr{<>}",
             {
@@ -201,6 +220,20 @@ ls.add_snippets("tex", {
     -- big math stuff
     s({trig="f;", snippetType="autosnippet", wordTrig=false},
         fmta("\\frac{<>}{<>}",
+            {
+                d(1, get_visual), i(2)
+            }
+        )
+    ),
+    s({trig="lgnd", snippetType="autosnippet", wordTrig=false},
+        fmta("\\legendre{<>}{<>}",
+            {
+                d(1, get_visual), i(2)
+            }
+        )
+    ),
+    s({trig="t;", snippetType="autosnippet", wordTrig=false},
+        fmta("\\tfrac{<>}{<>}",
             {
                 d(1, get_visual), i(2)
             }
@@ -220,7 +253,7 @@ ls.add_snippets("tex", {
         {condition = in_mathzone}
     ),
     s({trig="ll", snippetType="autosnippet", wordTrig=false},
-        fmta("\\lim_{<>}",
+        fmta("\\lim\\limits_{<>}",
             { i(1) }
         ),
         {condition = in_mathzone}
@@ -231,7 +264,7 @@ ls.add_snippets("tex", {
         ),
         {condition = in_mathzone}
     ),
-    s({trig="pp", snippetType="autosnippet", wordTrig=false},
+    s({trig="pp", wordTrig=false},
         fmta("\\prod_{<>}",
             { i(1) }
         ),
@@ -399,7 +432,11 @@ ls.add_snippets("tex", {
         {t("\\ker")},
         {condition = in_mathzone}
     ),
-    s({trig="sta", snippetType="autosnippet", wordTrig=false},
+    s({trig="ckr", snippetType="autosnippet", wordTrig=false},
+        {t("\\coker")},
+        {condition = in_mathzone}
+    ),
+    s({trig="stab", snippetType="autosnippet", wordTrig=false},
         {t("\\St")},
         {condition = in_mathzone}
     ),
@@ -417,6 +454,36 @@ ls.add_snippets("tex", {
     ),
     s({trig="Out", snippetType="autosnippet", wordTrig=false},
         {t("\\Out")},
+        {condition = in_mathzone}
+    ),
+    s({trig="neg", snippetType="autosnippet", wordTrig=false},
+        {t("\\neg")},
+        {condition = in_mathzone}
+    ),
+    s({trig="vdh", snippetType="autosnippet", wordTrig=false},
+        {t("\\vdash")},
+        {condition = in_mathzone}
+    ),
+    s({trig="dg;", snippetType="autosnippet", wordTrig=false},
+        {t("\\wedge")},
+        {condition = in_mathzone}
+    ),
+    s({trig="Dg;", snippetType="autosnippet", wordTrig=false},
+        {t("\\bigwedge")},
+        {condition = in_mathzone}
+    ),
+    s({trig="isom", snippetType="autosnippet", wordTrig=false},
+        {t("\\cong")},
+        {condition = in_mathzone}
+    ),
+    s({trig="sp", wordTrig=false},
+        {t("\\supp")},
+        {condition = in_mathzone}
+    ),
+    s({trig="gnum", snippetType="autosnippet", wordTrig=false},
+        fmta("\\ulcorner <> \\urcorner",
+            { d(1, get_visual) }
+        ),
         {condition = in_mathzone}
     ),
 })

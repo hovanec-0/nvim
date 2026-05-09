@@ -38,10 +38,10 @@ ls.add_snippets("tex", {
     s({trig=";z", snippetType="autosnippet", wordTrig=false},
         {t("\\zeta"),}
     ),
-    s({trig=";t", snippetType="autosnippet", wordTrig=false},
+    s({trig=";T", snippetType="autosnippet", wordTrig=false},
         {t("\\theta"),}
     ),
-    s({trig=";T", snippetType="autosnippet", wordTrig=false},
+    s({trig=";t", snippetType="autosnippet", wordTrig=false},
         {t("\\tau"),}
     ),
     s({trig=";h", snippetType="autosnippet", wordTrig=false},
@@ -86,6 +86,9 @@ ls.add_snippets("tex", {
     s({trig=";f", snippetType="autosnippet", wordTrig=false},
         {t("\\phi"),}
     ),
+    s({trig=";v", snippetType="autosnippet", wordTrig=false},
+        {t("\\varphi"),}
+    ),
     s({trig=";F", snippetType="autosnippet", wordTrig=false},
         {t("\\Phi"),}
     ),
@@ -106,6 +109,9 @@ ls.add_snippets("tex", {
     ),
     s({trig=";Y", snippetType="autosnippet", wordTrig=false},
         {t("\\Psi"),}
+    ),
+    s({trig="El", snippetType="autosnippet", wordTrig=false},
+        {t("\\ell"),}
     ),
     -- set symbols
     s({trig="NN", snippetType="autosnippet", wordTrig=false},
@@ -140,6 +146,27 @@ ls.add_snippets("tex", {
         {t("\\mathscr{B}"),},
         {condition = in_mathzone}
     ),
+    s({trig="FF", snippetType="autosnippet", wordTrig=false},
+        {t("\\mathbb{F}"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="PP", snippetType="autosnippet", wordTrig=false},
+        {t("\\mathbb{P}"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="FP", snippetType="autosnippet", wordTrig=false},
+        {t("\\mathbb{F}_p"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="ZP", snippetType="autosnippet", wordTrig=false},
+        {t("\\mathbb{Z}/p \\mathbb{Z}"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="ZN", snippetType="autosnippet", wordTrig=false},
+    fmta("\\mathbb{Z}/{<>} \\mathbb{Z}",
+            {i(1),}), 
+        {condition = in_mathzone}
+    ),
     s({trig="sbs", snippetType="autosnippet", wordTrig=false},
         {t("\\subset"),},
         {condition = in_mathzone}
@@ -148,6 +175,11 @@ ls.add_snippets("tex", {
         {t("\\supset"),},
         {condition = in_mathzone}
     ),
+    s({trig="sms", snippetType="autosnippet", wordTrig=false},
+        {t("\\setminus"),},
+        {condition = in_mathzone}
+    ),
+
     -- other symbols
     s({trig="OO", snippetType="autosnippet", wordTrig=false},
         {t("\\infty"),},
@@ -175,6 +207,26 @@ ls.add_snippets("tex", {
     ),
     s({trig="-=", snippetType="autosnippet", wordTrig=false},
         {t("\\implies"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="l--", snippetType="autosnippet", wordTrig=false},
+        {t("\\rightarrow"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="land", snippetType="autosnippet", wordTrig=false},
+        {t("\\land"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="lor", snippetType="autosnippet", wordTrig=false},
+        {t("\\lor"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="neg", snippetType="autosnippet", wordTrig=false},
+        {t("\\neg"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="l==", snippetType="autosnippet", wordTrig=false},
+        {t("\\leftrightarrow"),},
         {condition = in_mathzone}
     ),
     s({trig="=-", snippetType="autosnippet", wordTrig=false},
@@ -218,6 +270,10 @@ ls.add_snippets("tex", {
         {t("\\ddots"),},
         {condition = in_mathzone}
     ),
+    s({trig="otm", snippetType="autosnippet", wordTrig=false},
+        {t("\\otimes"),},
+        {condition = in_mathzone}
+    ),
     --wordTrig true 
     s({trig="inn", snippetType="autosnippet"},
         {t("\\in"),},
@@ -229,6 +285,14 @@ ls.add_snippets("tex", {
     ),
     s({trig="mty", snippetType="autosnippet"},
         {t("\\emptyset"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="'a", snippetType="autosnippet"},
+        {t("\\forall"),},
+        {condition = in_mathzone}
+    ),
+    s({trig="'e", snippetType="autosnippet"},
+        {t("\\exists"),},
         {condition = in_mathzone}
     ),
 })
